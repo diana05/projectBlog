@@ -13,7 +13,12 @@ import java.util.List;
  */
 public interface ICommentFacade {
 
-    List<Comment> getAll();
+    public List<Comment> getAllComment(Long articleId)  ;
+    public Comment getComment(Long articleId, Long commentId);
+
+    public void saveComment(Comment comment);
+    public void updateComment(Comment comment);
+    public void deleteComment(Long articleId,Long commentId);
 
 }
 

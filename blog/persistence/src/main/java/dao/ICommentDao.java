@@ -1,16 +1,19 @@
 package dao;
-import model.Comment;
 
 import java.util.List;
-
+import model.Comment;
 /**
  * Created with IntelliJ IDEA.
  * User: User
- * Date: 14.09.2015
- * Time: 14:30
+ * Date: 15.09.2015
+ * Time: 17:44
  * To change this template use File | Settings | File Templates.
  */
 public interface ICommentDao {
-    List<Comment> findAll();
-    List<Comment> getAll();
+    public List<Comment> getAllComment(Long articleId)  ;
+    public Comment getComment(Long articleId, Long commentId);
+
+    public void saveComment(Comment comment);
+    public void updateComment(Comment comment);
+    public void deleteComment(Long articleId,Long commentId);
 }
