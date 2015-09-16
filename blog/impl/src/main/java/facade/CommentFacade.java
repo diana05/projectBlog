@@ -29,17 +29,17 @@ public class CommentFacade implements ICommentFacade {
 
 
     public void saveComment(Comment comment) {
-        this.saveComment(comment);
+        this.commentDao.saveComment(comment);
     }
 
 
     public void updateComment(Comment comment) {
-      this.updateComment(comment);
+      this.commentDao.updateComment(comment);
     }
 
 
     public void deleteComment(Long articleId, Long commentId) {
-        this.deleteComment(articleId,commentId);
+        this.commentDao.deleteComment(articleId,commentId);
     }
     public ICommentDao getCommentDao() {
         return commentDao;

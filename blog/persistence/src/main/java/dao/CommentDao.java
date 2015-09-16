@@ -35,7 +35,7 @@ public class CommentDao implements ICommentDao{
 
 
     public Comment getComment(Long articleId, Long commentId) {
-        Query query=this.entityManager.createQuery("from Comment WHERE articleId=:articleId AND id=:commentID");
+        Query query=this.entityManager.createQuery("from Comment WHERE articleId=:articleId AND id=:commentId");
         query.setParameter("articleId",articleId);
         query.setParameter("commentId",commentId) ;
         return (Comment) query.getSingleResult();
