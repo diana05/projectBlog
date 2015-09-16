@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class CommentDao implements ICommentDao{
     private EntityManager entityManager;
-    private Query query;
 
     @PersistenceContext
     private void setEntityManager(EntityManager entityManager){
@@ -27,7 +26,7 @@ public class CommentDao implements ICommentDao{
 
 
     public List<Comment> getAllComment(Long articleId) {
-            Query guery =this.entityManager.createQuery("from Comment WHERE articleId=:articleId");
+            Query query =this.entityManager.createQuery("from Comment WHERE articleId=:articleId");
             query.setParameter("articleId",articleId);
             return query.getResultList();
 
@@ -36,7 +35,7 @@ public class CommentDao implements ICommentDao{
 
 
     public Comment getComment(Long articleId, Long commentId) {
-        Query guery=this.entityManager.createQuery("from Comment WHERE articleId=:articleId AND id=:commentID");
+        Query query=this.entityManager.createQuery("from Comment WHERE articleId=:articleId AND id=:commentID");
         query.setParameter("articleId",articleId);
         query.setParameter("commentId",commentId) ;
         return (Comment) query.getSingleResult();
