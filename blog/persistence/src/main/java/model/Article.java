@@ -2,6 +2,7 @@ package model;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
@@ -24,12 +25,18 @@ public class Article  {
     private String description;
     @Column(name="content")
     private String content;
+    @Column(name="date")
+    private Date date;
+
+
+
     public Article(){};
-    public Article(Long id, String title, String description, String content){
+    public Article(Long id, String title, String description, String content,Date date){
         this.id=id;
         this.title=title;
         this.description=description;
         this.content = content;
+        this.date=date;
     }
 
     public Long getId() {
@@ -63,4 +70,12 @@ public class Article  {
     public void setContent(String content) {
         this.content = content;
     }
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
 }

@@ -3,12 +3,11 @@ package facade;
 import dao.IArticleDao;
 import model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Raluca
+ * User: Diana
  * Date: 11.09.2015
  * Time: 14:21
  * To change this template use File | Settings | File Templates.

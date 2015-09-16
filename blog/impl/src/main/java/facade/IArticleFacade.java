@@ -2,6 +2,7 @@ package facade;
 
 import model.Article;
 
+import java.util.Date;
 import java.util.List;
 
 /**

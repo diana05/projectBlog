@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -53,6 +54,10 @@ public class ArticleService {
     public void deleteArticle(@PathVariable("id") Long id) {
         this.articleFacade.remove(id);
     }
+
+  /*  public void addDate(Date date)   {
+        this.articleFacade.addDate(date);
+    }  */
 
     public void setArticleFacade(IArticleFacade articleFacade) {
         this.articleFacade = articleFacade;

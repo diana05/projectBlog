@@ -5,6 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,6 +37,7 @@ public class ArticleDao implements IArticleDao{
     }
     @Transactional
     public void save(Article item) {
+        item.setDate(new Date());
         entityManager.persist(item);
     }
 
@@ -43,6 +48,7 @@ public class ArticleDao implements IArticleDao{
             articleFromDbs.setTitle(article.getTitle());
             articleFromDbs.setDescription(article.getDescription());
             articleFromDbs.setContent(article.getContent());
+            articleFromDbs.setDate(article.getDate());
             entityManager.persist(articleFromDbs);
         }
     }
@@ -53,5 +59,4 @@ public class ArticleDao implements IArticleDao{
             entityManager.remove(articleFromDbs);
         }
     }
-
 }

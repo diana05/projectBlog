@@ -24,7 +24,7 @@
 
           p:driverClassName="com.mysql.jdbc.Driver"
 
-          p:url="jdbc:mysql://localhost/blog"
+          p:url="jdbc:mysql://localhost/blog?zeroDateTimeBehavior=convertToNull"
 
           p:username="root"
             />
