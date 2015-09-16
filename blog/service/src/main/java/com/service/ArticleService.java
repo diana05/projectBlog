@@ -44,8 +44,9 @@ public class ArticleService {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void updateArticle(@PathVariable("id") Long id, @RequestBody Article article) {
+    public void updateArticle(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article article) {
         article.setId(id);
+        article.setlastDate(lastDate);
         this.articleFacade.update(article);
     }
 
@@ -55,9 +56,7 @@ public class ArticleService {
         this.articleFacade.remove(id);
     }
 
-  /*  public void addDate(Date date)   {
-        this.articleFacade.addDate(date);
-    }  */
+
 
     public void setArticleFacade(IArticleFacade articleFacade) {
         this.articleFacade = articleFacade;

@@ -27,16 +27,18 @@ public class Article  {
     private String content;
     @Column(name="date")
     private Date date;
-
+    @Column(name="lastDate")
+    private Date lastDate;
 
 
     public Article(){};
-    public Article(Long id, String title, String description, String content,Date date){
+    public Article(Long id, String title, String description, String content,Date date,Date lastDate){
         this.id=id;
         this.title=title;
         this.description=description;
         this.content = content;
         this.date=date;
+        this.lastDate=lastDate;
     }
 
     public Long getId() {
@@ -78,4 +80,11 @@ public class Article  {
         this.date = date;
     }
 
+    public Date getlastDate() {
+        return lastDate;
+    }
+
+    public void setlastDate(Date lastDate) {
+        this.lastDate = lastDate;
+    }
 }

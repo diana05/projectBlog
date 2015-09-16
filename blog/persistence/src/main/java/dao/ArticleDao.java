@@ -48,7 +48,7 @@ public class ArticleDao implements IArticleDao{
             articleFromDbs.setTitle(article.getTitle());
             articleFromDbs.setDescription(article.getDescription());
             articleFromDbs.setContent(article.getContent());
-            articleFromDbs.setDate(article.getDate());
+             articleFromDbs.setlastDate(new Date());
             entityManager.persist(articleFromDbs);
         }
     }

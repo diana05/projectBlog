@@ -55,7 +55,7 @@ public class CommentDao implements ICommentDao{
        Comment commentFromDb= this.getComment(comment.getArticleId(), comment.getId());
         if (commentFromDb != null){
             commentFromDb.setContent(comment.getContent());
-            commentFromDb.setLastDate(comment.getLastDate());
+            commentFromDb.setlastDate(new Date());
             this.entityManager.persist(commentFromDb);
         }
     }

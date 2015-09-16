@@ -69,11 +69,11 @@ public class Comment {
         this.date = date;
     }
 
-    public Date getLastDate() {
+    public Date getlastDate() {
         return lastDate;
     }
 
-    public void setLastDate(Date lastDate) {
+    public void setlastDate(Date lastDate) {
         this.lastDate = lastDate;
     }
 }
