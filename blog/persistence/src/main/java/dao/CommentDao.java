@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class CommentDao implements ICommentDao{
     private EntityManager entityManager;
+    private Query query;
 
     @PersistenceContext
     private void setEntityManager(EntityManager entityManager){
@@ -27,7 +28,6 @@ public class CommentDao implements ICommentDao{
 
     public List<Comment> getAllComment(Long articleId) {
             Query guery =this.entityManager.createQuery("from Comment WHERE articleId=:articleId");
-            Query query;
             query.setParameter("articleId",articleId);
             return query.getResultList();
 
@@ -37,7 +37,6 @@ public class CommentDao implements ICommentDao{
 
     public Comment getComment(Long articleId, Long commentId) {
         Query guery=this.entityManager.createQuery("from Comment WHERE articleId=:articleId AND id=:commentID");
-        Query query;
         query.setParameter("articleId",articleId);
         query.setParameter("commentId",commentId) ;
         return (Comment) query.getSingleResult();
@@ -46,13 +45,13 @@ public class CommentDao implements ICommentDao{
 
     @Transactional
     public void saveComment(Comment comment) {
-        this.entityManager.persist(Comment);
+        this.entityManager.persist(comment);
 
     }
 
     @Transactional
     public void updateComment(Comment comment) {
-       Comment commentFromDb= this.getComment(Comment.getArticleId(), Comment.getId());
+       Comment commentFromDb= this.getComment(comment.getArticleId(), comment.getId());
         if (commentFromDb != null){
             commentFromDb.setContent(comment.getContent());
             this.entityManager.persist(commentFromDb);
