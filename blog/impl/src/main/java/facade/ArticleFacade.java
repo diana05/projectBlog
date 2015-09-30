@@ -24,19 +24,17 @@ public class ArticleFacade implements IArticleFacade {
         return  this.articleDao.get(id);
     }
 
-    public void saveArticle(Article article) {
-        this.articleDao.saveArticle(article);
-    }
-
-    public void update(Article article) {
-        this.articleDao.update(article);
+    public void saveMyArticle(Article myArticle) {
+        this.articleDao.saveArticle(myArticle);
     }
 
     public void deleteArticle(Long id) {
         this.articleDao.deleteArticle(id);
     }
 
-
+    public  void updateMyArticle(Article myArticle) {
+        this.articleDao.updateArticle(myArticle);
+    }
 
     public IArticleDao getArticleDao() {
         return articleDao;

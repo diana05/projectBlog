@@ -40,16 +40,16 @@ public class ArticleService {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public void saveArticle(@RequestBody Article article) {
-        this.articleFacade.saveArticle(article);
+    public void saveArticle(@RequestBody Article myArticle) {
+        this.articleFacade.saveMyArticle(myArticle);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void update(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article article) {
-        article.setId(id);
-        article.setlastDate(lastDate);
-        this.articleFacade.update(article);
+    public void updateArticle(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article myArticle) {
+        myArticle.setId(id);
+        myArticle.setlastDate(lastDate);
+        this.articleFacade.updateMyArticle( myArticle);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

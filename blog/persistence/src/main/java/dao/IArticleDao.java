@@ -16,8 +16,8 @@ public interface IArticleDao {
 
     List<Article> getAll();
     Article get(Long id);
-    void saveArticle(Article article);
-    void update(Article article);
+    void saveArticle(Article  myArticle);
+    void updateArticle(Article  myArticle);
     void deleteArticle(Long id);
 
 

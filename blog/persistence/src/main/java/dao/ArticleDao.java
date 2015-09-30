@@ -37,22 +37,24 @@ public class ArticleDao implements IArticleDao{
             return entityManager.find(Article.class, id);
         }
     }
+
     @Transactional
-    public void saveArticle(Article article) {
-        article.setDate(new Date());
-        entityManager.persist(article);
+    public void saveArticle(Article myArticle) {
+        entityManager.persist(myArticle);
+
     }
 
     @Transactional
-    public void update(Article article) {
-        Article articleFromDbs = this.get(article.getId());
-        if (articleFromDbs != null) {
-            articleFromDbs.setTitle(article.getTitle());
-            articleFromDbs.setDescription(article.getDescription());
-            articleFromDbs.setContent(article.getContent());
-             articleFromDbs.setlastDate(new Date());
-            entityManager.persist(articleFromDbs);
+    public void updateArticle(Article myArticle) {
+        Article itemFromDbs = this.get(myArticle.getId());
+        if (itemFromDbs != null) {
+
+            itemFromDbs.setTitle(myArticle.getTitle());
+            itemFromDbs.setDescription(myArticle.getDescription());
+            itemFromDbs.setContent(myArticle.getContent());
+            entityManager.persist(itemFromDbs);
         }
+
     }
     @Transactional
     public void deleteArticle(Long id) {
