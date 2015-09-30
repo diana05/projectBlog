@@ -19,7 +19,7 @@ import java.util.List;
 
 public class CommentService {
     @Autowired
-    private ICommentFacade commentFacade;
+    ICommentFacade commentFacade;
 
     @RequestMapping(value = "/article/{articleId}/comment", method = RequestMethod.GET)
     @ResponseBody
@@ -35,7 +35,7 @@ public class CommentService {
 
     @RequestMapping(value = "/article/{articleId}/comment", method = RequestMethod.POST)
     @ResponseBody
-    public void addComment(@PathVariable ("articleId") Long articleId,@RequestBody Comment comment){
+    public void saveComment(@PathVariable ("articleId") Long articleId,@RequestBody Comment comment){
         comment.setArticleId(articleId);
          this.commentFacade.saveComment(comment);
     }

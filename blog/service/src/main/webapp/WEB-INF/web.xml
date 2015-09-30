@@ -1,8 +1,4 @@
-<web-app xmls="http://java.sun.com/xml/ns/javaee"
-         xnlns="http://www.w3.org/2001/XMLSchena-instance"
-         xsi:schenaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
-    <display-name>Archetype Created Web Aplication</display-name>
+<web-app >
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
@@ -35,7 +31,7 @@
 
     <filter>
         <filter-name>AccessFilter</filter-name>
-        <filter-class>facade.AccesFilter</filter-class>
+        <filter-class>com.service.AccesFilter</filter-class>
     </filter>
 
     <filter-mapping>

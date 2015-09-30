@@ -1,9 +1,9 @@
-package facade;
+package com.service;
 
-import javax.servlet.http.*;
-import java.io.IOException;
 import javax.servlet.*;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 /**
@@ -28,6 +28,9 @@ public class AccesFilter implements Filter {
         httpServletResponse.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
         httpServletResponse.addHeader("Access-Control-Max-Age", "3600");
         httpServletResponse.addHeader("Access-Control-Allow-Headers", "x-requested-with, X-Auth-Token, Content-Type");
+        if(httpServletRequest.getMethod().equalsIgnoreCase("OPTIONS")){
+            return;
+        }
         filterChain.doFilter(request,response);
     }
 

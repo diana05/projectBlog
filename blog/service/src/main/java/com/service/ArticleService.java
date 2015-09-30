@@ -21,8 +21,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/article")
 public class ArticleService {
+
+
     @Autowired
-    private IArticleFacade articleFacade;
+    IArticleFacade articleFacade;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
@@ -32,19 +34,19 @@ public class ArticleService {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Article getArticle(@PathVariable("id") Long id){
-        return this.articleFacade.get(id);
+    public Article getArticle(@PathVariable("id") Long articleId){
+        return this.articleFacade.get(articleId);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public void saveArticle(@RequestBody Article article) {
-        this.articleFacade.save(article);
+        this.articleFacade.saveArticle(article);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void updateArticle(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article article) {
+    public void update(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article article) {
         article.setId(id);
         article.setlastDate(lastDate);
         this.articleFacade.update(article);
@@ -52,14 +54,17 @@ public class ArticleService {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteArticle(@PathVariable("id") Long id) {
-        this.articleFacade.remove(id);
+    public void deleteArticle(@PathVariable("id") Long Id) {
+        this.articleFacade.deleteArticle(Id);
     }
 
-
+    public IArticleFacade getArticleFacade() {
+        return articleFacade;
+    }
 
     public void setArticleFacade(IArticleFacade articleFacade) {
         this.articleFacade = articleFacade;
     }
+
 
 }

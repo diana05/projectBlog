@@ -16,6 +16,9 @@
         <class>
             model.Article
         </class>
+        <class>
+            model.Comment
+        </class>
 
     </persistence-unit>
 

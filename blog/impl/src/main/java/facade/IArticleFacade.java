@@ -15,7 +15,8 @@ import java.util.List;
 public interface IArticleFacade {
     List<Article> getAll();
     Article get(Long id) ;
-    void save(Article article);
+    void saveArticle(Article article);
     void update(Article article);
-    void remove(Long id);
+    void deleteArticle(Long id);
+
 }

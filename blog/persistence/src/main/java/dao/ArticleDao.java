@@ -20,10 +20,12 @@ import java.util.List;
  */
 public class ArticleDao implements IArticleDao{
     private EntityManager entityManager;
+
     @PersistenceContext
     private void setEntityManager(EntityManager entityManager){
         this.entityManager= entityManager;
     }
+
     public List<Article> getAll(){
          return this.entityManager.createQuery("from Article").getResultList();
     }
@@ -36,9 +38,9 @@ public class ArticleDao implements IArticleDao{
         }
     }
     @Transactional
-    public void save(Article item) {
-        item.setDate(new Date());
-        entityManager.persist(item);
+    public void saveArticle(Article article) {
+        article.setDate(new Date());
+        entityManager.persist(article);
     }
 
     @Transactional
@@ -53,7 +55,7 @@ public class ArticleDao implements IArticleDao{
         }
     }
     @Transactional
-    public void remove(Long id) {
+    public void deleteArticle(Long id) {
        Article articleFromDbs = this.get(id);
         if (articleFromDbs != null) {
             entityManager.remove(articleFromDbs);
