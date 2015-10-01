@@ -46,9 +46,8 @@ public class ArticleService {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void updateArticle(@PathVariable("id") Long id,@PathVariable("lastDate")Date lastDate, @RequestBody Article myArticle) {
+    public void updateArticle(@PathVariable("id") Long id, @RequestBody Article myArticle) {
         myArticle.setId(id);
-        myArticle.setlastDate(lastDate);
         this.articleFacade.updateMyArticle( myArticle);
     }
 

@@ -23,7 +23,7 @@ public class ArticleDao implements IArticleDao{
 
     @PersistenceContext
     private void setEntityManager(EntityManager entityManager){
-        this.entityManager= entityManager;
+        this.entityManager = entityManager;
     }
 
     public List<Article> getAll(){
@@ -52,7 +52,7 @@ public class ArticleDao implements IArticleDao{
             itemFromDbs.setTitle(myArticle.getTitle());
             itemFromDbs.setDescription(myArticle.getDescription());
             itemFromDbs.setContent(myArticle.getContent());
-            entityManager.persist(itemFromDbs);
+            this.entityManager.persist(itemFromDbs);
         }
 
     }
